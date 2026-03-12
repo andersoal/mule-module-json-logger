@@ -4,12 +4,12 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ORG_ID_TOKEN</groupId>
+    <groupId>ORG_ID</groupId>
     <artifactId>json-logger</artifactId>
     <version>3.0.0</version>
     <packaging>mule-extension</packaging>
-    <name>JSON Logger - Mule 4.6+</name>
-
+    <name>JSON Logger</name>
+    <description>A powerful MuleSoft extension for structured JSON logging with advanced transformation, filtering, and formatting capabilities.</description>
     <parent>
         <groupId>org.mule.extensions</groupId>
         <artifactId>mule-modules-parent</artifactId>
@@ -17,6 +17,11 @@
     </parent>
 
     <properties>
+
+        <repo.id>anypoint-exchange-v2</repo.id>
+        <!-- Update to US Based if your customer is in the US Control Plane -->
+        <repo.url>https://maven.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</repo.url>
+
         <mtf.javaopts></mtf.javaopts>
         <mule.sdk.api.version>0.7.0</mule.sdk.api.version>
         <jackson.databind.version>2.15.4</jackson.databind.version>
@@ -30,6 +35,7 @@
         <json.smart.version>2.4.11</json.smart.version>
         <munit.extensions.maven.plugin.version>1.2.0</munit.extensions.maven.plugin.version>
         <mule.extensions.maven.plugin.version>1.6.0-rc1</mule.extensions.maven.plugin.version>
+        <tags>mule-plugin,mule-sdk-java</tags>
     </properties>
 
     <build>
@@ -116,21 +122,19 @@
 
     <distributionManagement>
         <!-- Target Anypoint Organization Repository -->
-        <repository>
-            <id>anypoint-exchange-v2</id>
-            <name>Anypoint Exchange V2</name>
-            <!-- Update to US Based if your customer is in the US Control Plane -->
-            <url>https://maven.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
+         <repository>
+            <id>${repo.id}</id>
+            <name>Deployment Repo</name>
+            <url>${repo.url}</url>
             <layout>default</layout>
         </repository>
     </distributionManagement>
 
     <repositories>
-        <repository>
-            <id>anypoint-exchange-v2</id>
-            <name>Anypoint Exchange V2</name>
-            <!-- Update if on US Control Plane -->
-            <url>https://maven.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
+       <repository>
+            <id>${repo.id}</id>
+            <name>Deployment Repo</name>
+            <url>${repo.url}</url>
             <layout>default</layout>
         </repository>
         <repository>
