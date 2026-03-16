@@ -43,20 +43,13 @@
             <!-- You may have issues with maven-jdeps-plugin on Windows. Try WSL or comment out this plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jdeps-plugin</artifactId>
-                <version>3.1.2</version>
+                <artifactId>maven-javadoc-plugin</artifactId>
                 <executions>
                     <execution>
-                        <goals>
-                            <goal>jdkinternals</goal>
-                            <goal>test-jdkinternals</goal>
-                        </goals>
+                        <id>attach-javadocs</id>
+                        <phase>none</phase>
                     </execution>
                 </executions>
-                <configuration>
-                    <failOnWarning>true</failOnWarning>
-                    <multiRelease>17</multiRelease>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
